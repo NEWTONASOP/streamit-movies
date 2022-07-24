@@ -74,7 +74,7 @@
                                        <div class="search-box iq-search-bar">
                                           <form action="#" class="searchbox">
                                              <div class="form-group position-relative">
-                                                <input type="text" class="text search-input font-size-12"
+                                                <input type="text" id="mySearch" onkeyup="myFunction()" class="text search-input font-size-12"
                                                    placeholder="type here to search...">
                                                 <i class="search-link ri-search-line"></i>
                                              </div>
@@ -193,7 +193,7 @@
                                  <div class="search-box iq-search-bar d-search">
                                     <form action="#" class="searchbox">
                                        <div class="form-group position-relative">
-                                          <input type="text" class="text search-input font-size-12"
+                                          <input type="text" id="mySearch" onkeyup="myFunction()" class="text search-input font-size-12"
                                              placeholder="type here to search...">
                                           <i class="search-link ri-search-line"></i>
                                        </div>
@@ -4159,6 +4159,26 @@
       <script src="js/slick-animation.min.js"></script>
       <!-- Custom JS-->
       <script src="js/custom.js"></script>
+      <script>
+function myFunction() {
+  // Declare variables
+  var input, filter, ul, li, a, i;
+  input = document.getElementById("mySearch");
+  filter = input.value.toUpperCase();
+  ul = document.getElementById("myMenu");
+  li = ul.getElementsByTagName("li");
+
+  // Loop through all list items, and hide those who don't match the search query
+  for (i = 0; i < li.length; i++) {
+    a = li[i].getElementsByTagName("a")[0];
+    if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+      li[i].style.display = "";
+    } else {
+      li[i].style.display = "none";
+    }
+  }
+}
+</script>
    </body>
 
 <!-- Mirrored from iqonic.design/themes/streamitnew/frontend/html/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 04 Sep 2020 20:04:10 GMT -->
